@@ -62,7 +62,7 @@ class Tipo_documentoController extends Controller
 
             // Validar datos
             $validate = \Validator::make($params_array, [
-                'name'    => 'required'
+                'nombre'    => 'required'
             ]);
 
             if ($validate->fails()) {
@@ -78,16 +78,16 @@ class Tipo_documentoController extends Controller
 
                 // Crear el Tipo_documento
                 $Tipo_documento             = new Tipo_documento();
-                $Tipo_documento->name     = $params_array['name'];
+                $Tipo_documento->nombre     = $params_array['nombre'];
 
                 //Guardar el Tipo_documento
                 $Tipo_documento->save();
 
                 $data = array(
-                    'status'    => 'success',
-                    'code'      => 200,
-                    'message'   => 'El tipo documento se ha creado correctamente',
-                    'Tipo_documento'       => $Tipo_documento
+                    'status'                => 'success',
+                    'code'                  => 200,
+                    'message'               => 'El tipo documento se ha creado correctamente',
+                    'Tipo_documento'        => $Tipo_documento
                 );
             }
         }else {
@@ -109,7 +109,7 @@ class Tipo_documentoController extends Controller
         if (!empty($params_array)) {
             // Validar los datos
             $validate = \Validator::make($params_array, [
-                'name'    => 'required'
+                'nombre'    => 'required'
             ]);
 
                 if ($validate->fails()) {

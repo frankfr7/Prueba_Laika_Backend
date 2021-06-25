@@ -34,7 +34,7 @@ class UserController extends Controller
             $data = [
                 'code'      => 200,
                 'status'    => 'success',
-                'User'      => $User
+                'users'      => $User
             ];
         }else {
             $data = [
@@ -60,7 +60,12 @@ class UserController extends Controller
 
             // Validar datos
             $validate = \Validator::make($params_array, [
-                'name'    => 'required'
+                'primer_nombre'     => 'required',
+                'segundo_nombre'    => 'required',
+                'primer_apellido'   => 'required',
+                'segundo_apellido'  => 'required',
+                'nro_documento'     => 'required|numeric',
+                'tipo_documento_id' => 'required|numeric'
             ]);
 
             if ($validate->fails()) {
@@ -90,7 +95,7 @@ class UserController extends Controller
                     'status'    => 'success',
                     'code'      => 200,
                     'message'   => 'El usuario se ha creado correctamente',
-                    'User'       => $User
+                    'users'     => $User
                 );
             }
         }else {
@@ -112,7 +117,12 @@ class UserController extends Controller
         if (!empty($params_array)) {
             // Validar los datos
             $validate = \Validator::make($params_array, [
-                'name'    => 'required'
+                'primer_nombre'     => 'required',
+                'segundo_nombre'    => 'required',
+                'primer_apellido'   => 'required',
+                'segundo_apellido'  => 'required',
+                'nro_documento'     => 'required|numeric',
+                'tipo_documento_id' => 'required|numeric'
             ]);
 
                 if ($validate->fails()) {
@@ -136,7 +146,7 @@ class UserController extends Controller
                         'code'              => 200,
                         'status'            => 'success',
                         'message'           => 'El usuario ha sido actualizado con éxito',
-                        'User'    => $User
+                        'users'              => $User
                     ];
                 }
 
@@ -165,7 +175,7 @@ class UserController extends Controller
                 'code'              => 200,
                 'status'            => 'success',
                 'message'           => 'Se ha eliminado el siguiente usuario',
-                'User'    => $User
+                'users'             => $User
             ];
         }else {
             $data = [

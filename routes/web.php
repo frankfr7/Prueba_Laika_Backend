@@ -23,6 +23,12 @@ use App\Http\Controllers\Tipo_documentoController;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('api/operador_simcard', Operador_simcardController::class);
+
 Route::resource('api/usuarios', UserController::class);
 
 Route::resource('api/tipo_documento', Tipo_documentoController::class);
