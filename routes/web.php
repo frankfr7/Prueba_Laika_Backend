@@ -1,5 +1,9 @@
 <?php
 
+/*
+Autor: Franklin Valoyes López <franklin032010@hotmail.com>
+*/
+
 use Illuminate\Support\Facades\Route;
 
 // Menciono los controladores a usar
@@ -18,10 +22,6 @@ use App\Http\Controllers\Tipo_documentoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::resource('api/usuarios', UserController::class);
 

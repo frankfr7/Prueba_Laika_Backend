@@ -1,5 +1,9 @@
 <?php
 
+/*
+Autor: Franklin Valoyes López <franklin032010@hotmail.com>
+*/
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -8,6 +12,10 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function __construct() {
+        $this->middleware('api.auth', ['except' => []]);
+    }
+
     public function index(){
         $User = User::All()
         ->load('tipo_documento');
